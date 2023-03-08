@@ -13,3 +13,4 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 add_subdirectory(mediaplayer)
+add_subdirectory(net-chat)
