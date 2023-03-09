@@ -23,7 +23,7 @@ signals:
 	void participantLeft(const QString& nick);
 
 private slots:
-	void newConnection(Connection& connection);
+	void newConnection(Connection *connection);
 	void connectionError(QAbstractSocket::SocketError socketErr);
 	void disconnected();
 	void readForUse();

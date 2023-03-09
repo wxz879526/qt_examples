@@ -42,7 +42,7 @@ ChatDialog::ChatDialog(QWidget* parent /*= nullptr*/)
 	connect(&client, &Client::newParticipant, this, &ChatDialog::newParticipant);
 	connect(&client, &Client::participantLeft, this, &ChatDialog::participantLeft);
 
-	myNickName == client.nickName();
+	myNickName = client.nickName();
 	newParticipant(myNickName);
 
 	tableFormat.setBorder(0);

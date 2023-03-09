@@ -7,6 +7,7 @@
 
 class QTextEdit;
 class QListWidget;
+class QLineEdit;
 
 class ChatDialog : public QDialog
 {

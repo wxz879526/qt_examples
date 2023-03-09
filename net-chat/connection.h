@@ -13,7 +13,7 @@ public:
 	enum ConnectionState {
 		WaitingForGreeting,
 		ReadingGreeting,
-		ReadForUse
+		ReadyForUse
 	};
 
 	enum DataType {
@@ -30,7 +30,7 @@ public:
 
 	QString name() const;
 	void setGreetingMessage(const QString& message);
-	void sendMessage(const QString& message);
+	bool sendMessage(const QString& message);
 
 signals:
 	void readyForUse();
@@ -40,12 +40,11 @@ protected:
 	void timerEvent(QTimerEvent* event) override;
 
 private slots:
-	void processReadRead();
+	void processReadyRead();
 	void sendPing();
 	void sendGreetingMessage();
 
 private:
-	bool hasEnoughData();
 	void processGreeting();
 	void processData();
 
@@ -56,6 +55,7 @@ private:
 	QTimer pingTimer;
 	QElapsedTimer pongTimer;
 	QString buffer;
+	ConnectionState state;
 	DataType currentDataType;
 	int transferTimerId;
 	bool isGreetingMessageSent;
